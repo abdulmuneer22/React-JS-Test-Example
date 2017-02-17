@@ -16,11 +16,33 @@ const Styles = {
 
 
 class TextInput extends Component{
+    constructor(){
+        super();
+        this.state = {
+            text : ""
+        }
+    }
+
+    handleText(event){
+        console.log(event)
+    }
+
+    handleBlur(){
+        
+        if(this.state.text){
+            //alert(this.state.text)
+            console.log(this.state.text)
+
+        }
+    }
+
     render(){
+        console.log(this.state.text)
         return(
             <div>
                  <MuiThemeProvider>
                 {!this.props.multiLine ?
+
                 <TextField
                 hintText={this.props.placeholderText}
                 hintStyle={Styles.hintStyle}
@@ -28,7 +50,9 @@ class TextInput extends Component{
                 floatingLabelStyle={Styles.floatingLabelStyle}
                 floatingLabelFixed={true}
                 />
+                
                 :
+                
                 <div className="inputwrapper">
                 <div className="inputLabel">{this.props.title}</div>
                 <div>
@@ -37,6 +61,8 @@ class TextInput extends Component{
                 hintStyle={Styles.hintStyle}
                 multiLine={true}
                 rows={2}
+                onChange={(event,newValue)=>{this.setState({text : newValue})}}
+                onBlur ={()=>{this.handleBlur()}}
                 />
                 </div>
 
