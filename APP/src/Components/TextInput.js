@@ -29,20 +29,20 @@ class TextInput extends Component{
                 floatingLabelFixed={true}
                 />
                 :
+                <div className="inputwrapper">
+                <div className="inputLabel">{this.props.title}</div>
                 <div>
-                <label
-                style={{textAlign : 'left' , display: 'inline-block'}}
-                >{this.props.title}</label>
-                <br/>
                 <TextField
                 hintText={this.props.placeholderText}
                 hintStyle={Styles.hintStyle}
                 multiLine={true}
                 rows={2}
-                />   
-                </div>  
+                />
+                </div>
+
+                </div>
                 }
-                
+
                 </MuiThemeProvider>
             </div>
         );

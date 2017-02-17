@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 import TextInput from './TextInput'
 
+import '../App.css';
+
+
 class ISBNSearch extends Component {
     render() {
         return (
-            <div>
-                <h2 style={{
-                    fontFamily: 'Roboto'
-                }}>ISBN Search</h2>
-
+            <div className="pagewrapper">
 
                 <div style={{
                     display: 'flex',
@@ -19,26 +18,15 @@ class ISBNSearch extends Component {
                     <div style={{ flex: 1 }}>
 
                         <TextInput
-                            title="Site Identifier"
-                            placeholderText="essentialicon"
-                        />
-
-                        <TextInput
-                            title="Title"
-                            placeholderText="Polulated From Family Search"
-                        />
-                        <br/>
-
-                        <TextInput
                             title="Instructor Resource Title"
-                            placeholderText="Polulated From Family Search"
+                            placeholderText="Input Text"
                             multiLine={true}
                             rows={2}
                         />
 
                         <TextInput
                             title="Instructor Resource Copy"
-                            placeholderText="Polulated From Family Search"
+                            placeholderText="Input Text"
                             multiLine={true}
                             rows={2}
                         />
@@ -49,15 +37,7 @@ class ISBNSearch extends Component {
                         flex: 1
                     }}>
 
-                        <TextInput
-                            title="Associated Tile Family"
-                            placeholderText="Polulated From Family Search"
-                        />
 
-                        <TextInput
-                            title="Discipline ID"
-                            placeholderText="Polulated From Family Search"
-                        />
                     </div>
 
 
