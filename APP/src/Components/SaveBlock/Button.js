@@ -7,9 +7,10 @@ import {connect} from 'react-redux'
 
 class Button extends Component{
     render(){
+        console.log(this.props)
         return(
             <div
-            onClick={()=>{actions.SaveContent()}}
+            onClick={()=>{alert("Value has been updated")}}
             >
             <MuiThemeProvider>
             <FlatButton 

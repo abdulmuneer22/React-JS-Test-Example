@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import SampleReducer from './SampleReducer'
+
+import ResourceTitleReducer from './RS_TitleReducer'
 
 
 export default combineReducers({
-   Sample : SampleReducer
+   ResourceTitle : ResourceTitleReducer
 });

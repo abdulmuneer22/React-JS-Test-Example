@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
-import { createStore , combineReducers } from 'redux'
+import { createStore  , applyMiddleware} from 'redux'
 import './App.css';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -8,7 +8,12 @@ import ISBNSearch from './Components/ISBNSearch'
 import SaveBlock from './Components/SaveBlock'
 
 import reducers from './Redux/reducers'
+import thunk from 'redux-thunk';
 
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk)
+);
 
 class App extends Component {
   constructor(){
@@ -17,7 +22,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Provider store={createStore(reducers)}>
+      <Provider store={store}>
       <div className="container">
 
         <SaveBlock />

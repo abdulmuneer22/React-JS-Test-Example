@@ -22,6 +22,7 @@ class ISBNSearch extends Component {
                             placeholderText="Input Text"
                             multiLine={true}
                             rows={2}
+                            target="INSTRUCTOR_TITLE"
                         />
 
                         <TextInput
@@ -29,6 +30,8 @@ class ISBNSearch extends Component {
                             placeholderText="Input Text"
                             multiLine={true}
                             rows={2}
+                            target="INSTRUCTOR_TITLE_COPY"
+                            
                         />
 
                     </div>
