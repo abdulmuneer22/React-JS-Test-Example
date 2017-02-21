@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 
-import ResourceTitleReducer from './RS_TitleReducer'
+
+import IRTTitleText from './IRTTextReducer'
+import IRTCTitleText from './IRTCTextReducer'
 
 
 export default combineReducers({
-   ResourceTitle : ResourceTitleReducer
+
+   IRTText : IRTTitleText,
+   IRTCText : IRTCTitleText
 });

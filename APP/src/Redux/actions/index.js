@@ -28,11 +28,11 @@ export const SaveInstructorTitle = (text) => {
 }
 
 export const SaveInstructorTitleCopy = (text) => {
-    console.log("action SaveInstructorTitleCopy received the value", text)
-    // save the data to db by thunk 
+    console.log("action SaveInstructorTitle received the value", text)
 
+    // save the data to db by thunk 
     return dispatch => {
-        var CMS_END = "http://localhost:8080/cms/SaveInstructorTitle"
+        var CMS_END = "http://localhost:8080/cms/SaveInstructorTitleCopy"
         var PostData = querystring.stringify({
             "Title": text
         })
@@ -50,38 +50,66 @@ export const SaveInstructorTitleCopy = (text) => {
 
 
     }
+
 }
 
 
 
-
-/*********Get Data From DB */
-// export const GetTitle = (_target) => {
-//     console.log("action GetTitle to get existing title  value with target" ,_target)
-
-//     return dispatch => {
-//         var CMS_END = "http://localhost:8080/cms/GetTitle"
-//         var PostData = querystring.stringify({
-//             "target": _target
-//         })
-
-//         var Query = axios.post(CMS_END, PostData)
-//         .then((response)=>{
-//             console.log(response.data[0].Title)
-//             dispatch({
-//                 type : "GOT_TITLE_FROM_DB",
-//                 payload : response.data[0].Title
-//             })
-//         })
-//         .catch((err)=>{
-//             console.log(err)
-//         })
-        
-
-//     }
+export const HandleTextInputForIRT = (text) => {
+    console.log("Action to hande HandleTextInputForIRT")
+    console.log(text)
+    return {
+        type: 'IRT_TEXT',
+        payload: text
+    }
+}
 
 
-// }
+export const HandleTextInputForIRTC = (text) => {
+    console.log("Action to hande HandleTextInputForIRTC")
+    console.log(text)
+    return {
+        type: 'IRTC_TEXT',
+        payload: text
+    }
+}
 
 
+export const GetIRTTitleFromDB = () => {
+    return dispatch => {
+        var CMS_END = "http://localhost:8080/cms/GetTitle/IRT"
+        var PostData = querystring.stringify({
+            "target": "Title"
+        })
+
+        var Query = axios.post(CMS_END, PostData)
+            .then((response) => {
+                console.log(response.data[0].Title)
+                dispatch({
+                    type: 'IRT_TEXT',
+                    payload: response.data[0].Title
+                })
+            })
+
+    }
+}
+
+export const GetIRTCTitleFromDB = () => {
+    return dispatch => {
+        var CMS_END = "http://localhost:8080/cms/GetTitle/IRTC"
+        var PostData = querystring.stringify({
+            "target": "Title"
+        })
+
+        var Query = axios.post(CMS_END, PostData)
+            .then((response) => {
+                console.log("from irtc action " , response.data[0].Title)
+                dispatch({
+                    type: 'IRTC_TEXT',
+                    payload: response.data[0].Title
+                })
+            })
+
+    }
+}
 

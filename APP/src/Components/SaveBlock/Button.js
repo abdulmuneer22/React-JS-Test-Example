@@ -10,7 +10,12 @@ class Button extends Component{
         console.log(this.props)
         return(
             <div
-            onClick={()=>{alert("Value has been updated")}}
+            onClick={()=>{
+                this.props.SaveInstructorTitle(this.props.IRTText)
+                this.props.SaveInstructorTitleCopy(this.props.IRTCText)
+
+
+                }}
             >
             <MuiThemeProvider>
             <FlatButton 
@@ -30,8 +35,11 @@ class Button extends Component{
 
 
 const mapStateToProps = (state) => {
+    // console.log("from button " , state)
     return {
-        prop: state.prop
+        IRTCText: state.IRTCText,
+        IRTText : state.IRTText
+
     }
 }
 

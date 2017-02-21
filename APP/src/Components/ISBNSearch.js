@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
-import TextInput from './TextInput'
+
 
 import '../App.css';
+
+
+import IRT from './IRT'
+import IRTC from './IRTC'
 
 
 class ISBNSearch extends Component {
@@ -17,22 +21,8 @@ class ISBNSearch extends Component {
 
                     <div style={{ flex: 1 }}>
 
-                        <TextInput
-                            title="Instructor Resource Title"
-                            placeholderText="Input Text"
-                            multiLine={true}
-                            rows={2}
-                            target="INSTRUCTOR_TITLE"
-                        />
-
-                        <TextInput
-                            title="Instructor Resource Copy"
-                            placeholderText="Input Text"
-                            multiLine={true}
-                            rows={2}
-                            target="INSTRUCTOR_TITLE_COPY"
-                            
-                        />
+                        <IRT/>
+                        <IRTC/>
 
                     </div>
 
