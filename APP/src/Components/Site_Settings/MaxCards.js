@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {connect} from 'react-redux'
-import * as actions from '../Redux/actions'
+import * as actions from '../../Redux/actions'
 
 
 
@@ -19,20 +19,14 @@ const Styles = {
     }
 }
 
-class IRTC extends Component {
+class MaxCards extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            textValue: ""
-        }
-
-    }
+    
 
 
 
     componentWillMount(){
-        this.props.GetIRTCTitleFromDB()
+        this.props.GetMaxCardsFromDB()
     }
 
 
@@ -42,22 +36,18 @@ class IRTC extends Component {
         return (
             <div>
 
-                <div className="inputLabel">Instructor Resource Copy</div>
+                <div className="maxcard_title">Max Number of Links of Card</div>
 
                 <MuiThemeProvider>
 
                     <TextField
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
-                        floatingLabelText={this.props.title}
                         floatingLabelStyle={Styles.floatingLabelStyle}
                         floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
-                        value = {this.props.TextValue}
-                        onChange={(event, newValue) => { 
-                            this.setState({ textValue: newValue }) 
-                            this.props.HandleTextInputForIRTC(newValue)
+                        value = {this.props.MaxCards}
+                        onChange={(event, newValue) => {
+                            this.props.HandleTextInputForMaxCards(newValue)
                         }}
 
                     />
@@ -69,11 +59,10 @@ class IRTC extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log("from componennt 2" , state)
+    // console.log("from componennt" , state)
     return {
-        TextValue: state.IRTCText
+        MaxCards: state.MaxCardsNumber
     }
 }
 
-export default connect(mapStateToProps, actions)(IRTC)
-
+export default connect(mapStateToProps, actions)(MaxCards)

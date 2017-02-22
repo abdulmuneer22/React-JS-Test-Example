@@ -9,6 +9,11 @@ import IRT from './IRT'
 import IRTC from './IRTC'
 
 
+
+// Story 2
+
+import SiteSettings from './Site_Settings'
+
 class ISBNSearch extends Component {
     render() {
         return (
@@ -21,8 +26,8 @@ class ISBNSearch extends Component {
 
                     <div style={{ flex: 1 }}>
 
-                        <IRT/>
-                        <IRTC/>
+                        <IRT />
+                        <IRTC />
 
                     </div>
 
@@ -39,9 +44,16 @@ class ISBNSearch extends Component {
 
 
 
+
+
                 </div>
 
-            </div>)
+
+                <SiteSettings />
+
+
+
+            </div>);
     }
 }
 

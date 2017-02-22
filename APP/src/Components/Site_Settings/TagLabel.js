@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {connect} from 'react-redux'
-import * as actions from '../Redux/actions'
+import * as actions from '../../Redux/actions'
 
 
 
@@ -19,20 +19,10 @@ const Styles = {
     }
 }
 
-class IRTC extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            textValue: ""
-        }
-
-    }
-
-
+class TagLabel extends Component {
 
     componentWillMount(){
-        this.props.GetIRTCTitleFromDB()
+        this.props.GetTagLabelFromDB()
     }
 
 
@@ -42,22 +32,18 @@ class IRTC extends Component {
         return (
             <div>
 
-                <div className="inputLabel">Instructor Resource Copy</div>
+                <div className="tag_label_title">Tag Label</div>
 
                 <MuiThemeProvider>
 
                     <TextField
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
-                        floatingLabelText={this.props.title}
                         floatingLabelStyle={Styles.floatingLabelStyle}
                         floatingLabelFixed={true}
-                        multiLine={true}
-                        rows={2}
                         value = {this.props.TextValue}
-                        onChange={(event, newValue) => { 
-                            this.setState({ textValue: newValue }) 
-                            this.props.HandleTextInputForIRTC(newValue)
+                        onChange={(event, newValue) => {
+                            this.props.HandleTextInputForTagLabel(newValue)
                         }}
 
                     />
@@ -69,11 +55,10 @@ class IRTC extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log("from componennt 2" , state)
+    // console.log("from componennt" , state)
     return {
-        TextValue: state.IRTCText
+        TextValue: state.TagLabelText
     }
 }
 
-export default connect(mapStateToProps, actions)(IRTC)
-
+export default connect(mapStateToProps, actions)(TagLabel)

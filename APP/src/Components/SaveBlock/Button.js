@@ -7,14 +7,15 @@ import {connect} from 'react-redux'
 
 class Button extends Component{
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <div
             onClick={()=>{
                 this.props.SaveInstructorTitle(this.props.IRTText)
                 this.props.SaveInstructorTitleCopy(this.props.IRTCText)
-
-
+                this.props.SaveFilterLabelToDB(this.props.FLText)
+                this.props.SaveTagLabelToDB(this.props.TagLabelText)
+                this.props.SaveMaxCardsToDB(this.props.MaxCardNumber)
                 }}
             >
             <MuiThemeProvider>
@@ -35,10 +36,13 @@ class Button extends Component{
 
 
 const mapStateToProps = (state) => {
-    // console.log("from button " , state)
+     console.log("from button " , state)
     return {
         IRTCText: state.IRTCText,
-        IRTText : state.IRTText
+        IRTText : state.IRTText,
+        FLText : state.FLText,
+        TagLabelText : state.TagLabelText,
+        MaxCardNumber : state.MaxCardsNumber
 
     }
 }

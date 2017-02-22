@@ -62,3 +62,36 @@
     background-color: lightslategrey;
     color: white
 }
+
+
+/********Site Settings****/
+
+.site_settings_wrapper {
+    margin-top: 50px
+}
+
+.segment_headder {
+    color: #00ACC1;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    padding-bottom: 2px
+}
+
+.filter_label_title {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 15px
+}
+
+.tag_label_title {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.maxcard_title {
+    font-size: 12px;
+    font-weight: 500;
+}
