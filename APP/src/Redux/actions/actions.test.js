@@ -5,20 +5,22 @@ import {
     HandleTextInputForFilterLabel,
     HandleTextInputForTagLabel,
     SaveInstructorTitle,
-    HandleTextInputForMaxCards
+    HandleTextInputForMaxCards,
+
+    GetMaxCardsFromDB
 
 } from './index'
 
 const querystring = require('querystring');
-
-
-
-import configureMockStore from 'redux-mock-store'
+import axios from 'axios'
+import { createStore  , applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import nock from 'nock'
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
 
+
+
+const store = createStore(
+  applyMiddleware(thunk)
+);
 
 
 
@@ -58,10 +60,36 @@ it('HandleTextInputForMaxCards should create TagLabel_TEXT action', () => {
 })
 
 
+// it('GetMaxCardsFromDB should return maxcard number from network', () => {
+//     expect(GetMaxCardsFromDB()).toEqual({
+//         type: 'MAX_CARDS_NUMBER',
+//         payload: 10
+//     })
+// })
+
+function fetchData() {
+    return dispatch => {
+        var CMS_END = "http://localhost:8080/cms/GetTitle/IRTC"
+        var PostData = querystring.stringify(
+            {
+                "target": "Title"
+            }
+        );
+        axios.post(CMS_END,PostData)
+        .then((response)=>{
+            console.log("from GetMaxCardsFromDB action ", response.data[0])
+                dispatch({
+                    type: 'MAX_CARDS_NUMBER',
+                    payload: response.data[0].value
+                })
+        })
+    }
+}
 
 
-
-
+// it('should execute fetch data', () => {
+//     console.log(store.getState())
+// })
 
 
 

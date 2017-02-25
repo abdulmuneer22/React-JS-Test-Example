@@ -10,6 +10,7 @@ class Button extends Component{
         // console.log(this.props)
         return(
             <div
+            className="mybutton"
             onClick={()=>{
                 this.props.SaveInstructorTitle(this.props.IRTText)
                 this.props.SaveInstructorTitleCopy(this.props.IRTCText)
