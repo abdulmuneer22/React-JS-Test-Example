@@ -6,7 +6,6 @@ import {
     HandleTextInputForTagLabel,
     SaveInstructorTitle,
     HandleTextInputForMaxCards,
-
     GetMaxCardsFromDB
 
 } from './index'
@@ -60,12 +59,7 @@ it('HandleTextInputForMaxCards should create TagLabel_TEXT action', () => {
 })
 
 
-// it('GetMaxCardsFromDB should return maxcard number from network', () => {
-//     expect(GetMaxCardsFromDB()).toEqual({
-//         type: 'MAX_CARDS_NUMBER',
-//         payload: 10
-//     })
-// })
+
 
 function fetchData() {
     return dispatch => {
@@ -87,9 +81,7 @@ function fetchData() {
 }
 
 
-// it('should execute fetch data', () => {
-//     console.log(store.getState())
-// })
+
 
 
 

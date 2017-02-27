@@ -41,6 +41,7 @@ class MaxCards extends Component {
                 <MuiThemeProvider>
 
                     <TextField
+                        id="max_card"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
                         floatingLabelStyle={Styles.floatingLabelStyle}

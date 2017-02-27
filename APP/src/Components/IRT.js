@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import {connect} from 'react-redux'
 import * as actions from '../Redux/actions'
@@ -19,13 +20,15 @@ const Styles = {
     }
 }
 
-class IRT extends Component {
+export class IRT extends Component {
 
     constructor() {
         super();
         this.state = {
             textValue: ""
         }
+        // injectTapEventPlugin();
+
 
     }
 
@@ -47,6 +50,7 @@ class IRT extends Component {
                 <MuiThemeProvider>
 
                     <TextField
+                        id = "TextField"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
                         floatingLabelStyle={Styles.floatingLabelStyle}

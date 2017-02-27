@@ -19,7 +19,7 @@ const Styles = {
     }
 }
 
-class IRTC extends Component {
+export class IRTC extends Component {
 
     constructor() {
         super();
@@ -47,6 +47,7 @@ class IRTC extends Component {
                 <MuiThemeProvider>
 
                     <TextField
+                        id = "textfield"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
                         floatingLabelText={this.props.title}

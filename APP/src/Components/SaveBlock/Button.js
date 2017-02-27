@@ -37,7 +37,7 @@ class Button extends Component{
 
 
 const mapStateToProps = (state) => {
-     console.log("from button " , state)
+     //console.log("from button " , state)
     return {
         IRTCText: state.IRTCText,
         IRTText : state.IRTText,

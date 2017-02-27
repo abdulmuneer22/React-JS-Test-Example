@@ -24,7 +24,6 @@ class App extends Component {
     return (
       <Provider store={store}>
       <div className="container">
-
         <SaveBlock />
         <ISBNSearch/>
       </div>

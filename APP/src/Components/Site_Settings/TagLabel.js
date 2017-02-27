@@ -37,6 +37,7 @@ class TagLabel extends Component {
                 <MuiThemeProvider>
 
                     <TextField
+                        id="taglabel"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
                         floatingLabelStyle={Styles.floatingLabelStyle}

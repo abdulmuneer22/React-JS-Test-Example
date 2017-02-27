@@ -19,7 +19,7 @@ const Styles = {
     }
 }
 
-class FilterLabel extends Component {
+export class FilterLabel extends Component {
 
     componentWillMount(){
         this.props.GetFilterLabelFromDB()
@@ -37,6 +37,7 @@ class FilterLabel extends Component {
                 <MuiThemeProvider>
 
                     <TextField
+                        id="filter_label"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
                         floatingLabelStyle={Styles.floatingLabelStyle}
