@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import * as actions from '../../Redux/actions'
 import {connect} from 'react-redux'
 
-class Button extends Component{
+export class Button extends Component{
     render(){
         // console.log(this.props)
         return(
