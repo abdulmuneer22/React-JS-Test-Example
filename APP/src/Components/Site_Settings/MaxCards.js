@@ -19,7 +19,7 @@ const Styles = {
     }
 }
 
-class MaxCards extends Component {
+export class MaxCards extends Component {
 
     
 

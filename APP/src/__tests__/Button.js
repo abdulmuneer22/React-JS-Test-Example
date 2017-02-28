@@ -12,7 +12,7 @@ function setup() {
             SaveInstructorTitleCopy : jest.fn(),
             SaveFilterLabelToDB : jest.fn(),
             SaveTagLabelToDB : jest.fn(),
-            SaveMaxCardsToDB : sinon.spy()
+            SaveMaxCardsToDB : jest.fn()
 
   }
 

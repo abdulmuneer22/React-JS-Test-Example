@@ -22,26 +22,14 @@ const Styles = {
 
 export class IRT extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            textValue: ""
-        }
-        // injectTapEventPlugin();
-
-
-    }
-
-
-
     componentWillMount(){
+        //calling the action for getting intial data from mongodb
         this.props.GetIRTTitleFromDB()
     }
 
 
     render() {
-        // console.log(this.state.textValue)
-        // console.log(this.props)
+
         return (
             <div>
 
@@ -59,7 +47,6 @@ export class IRT extends Component {
                         rows={2}
                         value = {this.props.TextValue}
                         onChange={(event, newValue) => {
-                            this.setState({ textValue: newValue })
                             this.props.HandleTextInputForIRT(newValue)
                         }}
 

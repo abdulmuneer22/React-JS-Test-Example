@@ -19,7 +19,7 @@ const Styles = {
     }
 }
 
-class TagLabel extends Component {
+export class TagLabel extends Component {
 
     componentWillMount(){
         this.props.GetTagLabelFromDB()

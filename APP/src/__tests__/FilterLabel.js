@@ -18,7 +18,7 @@ function setup() {
 
 describe("Filter Label Test", ()=>{
 
-    it('renders the button with out crashing and it has textfield title',()=>{
+    it('renders the filter_label_title with out crashing and it has textfield title',()=>{
 
         const { enzymeWrapper } = setup()
         // const value = enzymeWrapper.find('.filter_label_title').exists()
