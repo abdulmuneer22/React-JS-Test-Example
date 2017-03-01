@@ -26,7 +26,7 @@ class ISBNSearch extends Component {
 
                     <div style={{ flex: 1 }}>
 
-                        <IRT />
+                        <IRT/>
                         <IRTC />
 
                     </div>
