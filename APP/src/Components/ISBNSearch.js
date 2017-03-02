@@ -7,7 +7,7 @@ import '../App.css';
 
 import IRT from './IRT'
 import IRTC from './IRTC'
-
+import SiteIdentifier from './SiteIdentifier'
 
 
 // Story 2
@@ -25,7 +25,7 @@ class ISBNSearch extends Component {
                 }}>
 
                     <div style={{ flex: 1 }}>
-
+                        <SiteIdentifier />
                         <IRT/>
                         <IRTC />
 

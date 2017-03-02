@@ -6,21 +6,44 @@ import * as actions from '../../Redux/actions'
 import {connect} from 'react-redux'
 
 export class Button extends Component{
+
+    constructor(){
+        super();
+        this._handledButtonClick = this._handledButtonClick.bind(this)
+    }
+
+
+    _handledButtonClick(){
+                //alert("test")
+                
+                    if(this.props.SiteIdentifier.size !== 5){
+                        alert("Please Fix the errors !")
+                        
+                    }else{
+                        console.log("Saving Data")
+                        this.props.SaveInstructorTitle(this.props.IRTText)
+                        this.props.SaveInstructorTitleCopy(this.props.IRTCText)
+                        this.props.SaveFilterLabelToDB(this.props.FLText)
+                        this.props.SaveTagLabelToDB(this.props.TagLabelText)
+                        this.props.SaveMaxCardsToDB(this.props.MaxCardNumber)
+                        this.props.SaveSiteIdentifierToDB(this.props.SiteIdentifier.value)
+                        alert("Update Data !")
+                    }
+                
+                
+    }
+
+
     render(){
         // console.log(this.props)
         return(
             <div
             className="mybutton"
-            onClick={()=>{
-                this.props.SaveInstructorTitle(this.props.IRTText)
-                this.props.SaveInstructorTitleCopy(this.props.IRTCText)
-                this.props.SaveFilterLabelToDB(this.props.FLText)
-                this.props.SaveTagLabelToDB(this.props.TagLabelText)
-                this.props.SaveMaxCardsToDB(this.props.MaxCardNumber)
-                }}
+            onClick={this._handledButtonClick}
             >
             <MuiThemeProvider>
             <FlatButton 
+            disabled = {true}
             label= {this.props.title}
             style = {{
                 color : this.props.labelColor,
@@ -43,7 +66,8 @@ const mapStateToProps = (state) => {
         IRTText : state.IRTText,
         FLText : state.FLText,
         TagLabelText : state.TagLabelText,
-        MaxCardNumber : state.MaxCardsNumber
+        MaxCardNumber : state.MaxCardsNumber,
+        SiteIdentifier: state.SiteIdentifier
 
     }
 }

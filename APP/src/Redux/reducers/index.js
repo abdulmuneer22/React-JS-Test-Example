@@ -11,11 +11,19 @@ import TagLabelReducer from './SiteSettings/TagLabelReducer'
 import MaxCardsReducer from './SiteSettings/MaxCardsReducer'
 
 
+/*********Site Identifier Reducers */
+import SiteIdentifier from './SiteIdentifierReducer'
+import SiteIdentifierErrors from './SiteIdentifierErrors'
+
+
+
 export default combineReducers({
 
    IRTText : IRTTitleText,
    IRTCText : IRTCTitleText,
    FLText : FilterLabelReducer,
    TagLabelText : TagLabelReducer,
-   MaxCardsNumber : MaxCardsReducer
+   MaxCardsNumber : MaxCardsReducer,
+   SiteIdentifier : SiteIdentifier,
+   SiteIdentifierErrors : SiteIdentifierErrors
 });

@@ -282,7 +282,7 @@ export const HandleTextInputForMaxCards = (text) => {
 }
 
 export const SaveMaxCardsToDB = (number) => {
-    console.log("From SaveMaxCardsToDB" , number)
+    console.log("From SaveMaxCardsToDB", number)
     return dispatch => {
         var CMS_END = "http://localhost:8080/cms/setData"
         var PostData = querystring.stringify(
@@ -298,9 +298,105 @@ export const SaveMaxCardsToDB = (number) => {
                 // console.log("from GetFilterLabelFromDB action ", response.data[0].value)
                 dispatch({
                     type: 'MAX_CARDS_NUMBER_Updated'
-                    
+
                 })
             })
+
+    }
+}
+
+
+
+/**********Site Identifier */
+export const HandleTextInputForSiteIdentifier = (text) => {
+    console.log("Action to hande HandleTextInputForSiteIdentifier", text)
+    //do validation for text string
+    return dispatch => {
+
+
+        dispatch({
+            type: 'SID_TEXT',
+            payload: text
+
+        })
+    }
+
+
+
+}
+
+
+export const GetSiteIdentifier = () => {
+    return dispatch => {
+        var CMS_END = "http://localhost:8080/cms/getData"
+        var PostData = querystring.stringify(
+            {
+                "collection": "SiteIdentifier",
+                "field": "site_identifier"
+            }
+        );
+
+        var Query = axios.post(CMS_END, PostData)
+            .then((response) => {
+                console.log("from GetSiteIdentifier action ", response.data[0])
+                dispatch({
+                    type: 'SID_TEXT',
+                    payload: response.data[0].value
+                })
+            })
+
+    }
+}
+
+
+export const SaveSiteIdentifierToDB = (id) => {
+    //alert(id)
+    return dispatch => {
+        if (!id) {
+            //alert("Site Identifier Cannot be empty !")
+            dispatch({
+                type: 'SITE_IDENTIFIER_EMPTY',
+                payload: 0
+
+            })
+        } else {
+
+            //alert(typeof id)
+            // alert(id.length)
+            if (id.length != 5) {
+                //alert("Site Identifier Needs to be in XXXXX format")
+                dispatch({
+                    type: 'SITE_IDENTIFIER_SIZE',
+                    payload: 0
+
+                })
+            } else {
+                var CMS_END = "http://localhost:8080/cms/setData"
+                var PostData = querystring.stringify(
+                    {
+                        "collection": "SiteIdentifier",
+                        "target": "site_identifier",
+                        "value": id
+                    }
+                );
+
+                var Query = axios.post(CMS_END, PostData)
+                    .then((response) => {
+                        // console.log("from GetFilterLabelFromDB action ", response.data[0].value)
+                        dispatch({
+                            type: 'SITE_IDENTIFIER_SAVED'
+
+                        })
+                    })
+            }
+
+
+
+
+        }
+
+
+
 
     }
 }
