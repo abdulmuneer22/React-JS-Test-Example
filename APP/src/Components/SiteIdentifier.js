@@ -61,8 +61,8 @@ export class SiteIdentifier extends Component {
 const mapStateToProps = (state) => {
     //console.log("from componennt" , state)
     return {
-        TextValue: state.SiteIdentifier,
-        Error : state.SiteIdentifierErrors
+        TextValue: state.SiteIdentifier
+        
     }
 }
 

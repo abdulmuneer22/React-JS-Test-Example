@@ -8,7 +8,7 @@ export default (state = intitialState,action) => {
 
        case 'SITE_IDENTIFIER_SIZE':
        console.log("Site Identifier Needs to be in XXXXX format")
-       return "Site Identifier Needs to be in XXXXX format"
+       return "Site Identifier Needs to be in XXXXX format !"
        
 
        default:

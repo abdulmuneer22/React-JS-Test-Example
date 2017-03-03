@@ -35,6 +35,13 @@ app.all('/cms/GetTitle/IRTC', (req, res, next) => {
     return next()
 })
 
+app.all('/cms/setData/SiteIdentifier', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+    return next()
+})
+
 app.post('/cms/SaveInstructorTitle', (req, res) => {
 
     const TitleValue = req.body.Title
@@ -299,6 +306,29 @@ app.post('/cms/getData', (req, res) => {
 
 
 })
+
+
+app.post('/cms/setData/SiteIdentifier',(req,res)=>{
+  // end point to create a SiteIdentifier
+  var newValue = req.body.newValue
+  mongo.connect(URL, (err, db) => {
+    if(!err){
+      db.collection('SiteIdentifier').insert({
+        "target" : "site_identifier",
+        "value" : newValue
+      },(err,docs)=>{
+        if(!err){
+          res.send(docs)
+        }else{
+          res.send({
+            status_code : 'Duplicate'
+          })
+        }
+      })
+    }
+  })
+})
+
 app.post('/cms/setData', (req,res)=>{
   const _collection = req.body.collection
   const _target = req.body.target

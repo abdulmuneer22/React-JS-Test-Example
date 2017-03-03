@@ -371,22 +371,33 @@ export const SaveSiteIdentifierToDB = (id) => {
 
                 })
             } else {
-                var CMS_END = "http://localhost:8080/cms/setData"
+                var CMS_END = "http://localhost:8080/cms/setData/SiteIdentifier"
                 var PostData = querystring.stringify(
                     {
-                        "collection": "SiteIdentifier",
-                        "target": "site_identifier",
-                        "value": id
+	                "newValue" : id
                     }
                 );
 
                 var Query = axios.post(CMS_END, PostData)
                     .then((response) => {
-                        // console.log("from GetFilterLabelFromDB action ", response.data[0].value)
-                        dispatch({
-                            type: 'SITE_IDENTIFIER_SAVED'
-
+                            // console.log("from SaveSiteIdentifierToDB action ", response.data.status_code)
+                        
+                        if(response.data.status_code === "Duplicate"){
+                            console.log("duplicate")
+                            alert("Site Identifier Cannot be Duplicate")
+                            dispatch({
+                            type: 'SITE_IDENTIFIER_DUPLICATE'
                         })
+                        }else{
+                            dispatch({
+                            type: 'SITE_IDENTIFIER_SAVED'
+                        })
+                        }
+                        
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+
                     })
             }
 
