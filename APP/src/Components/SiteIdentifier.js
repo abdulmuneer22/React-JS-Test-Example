@@ -31,7 +31,7 @@ export class SiteIdentifier extends Component {
     render() {
 
         return (
-            <div>
+            <div className="site_identifier">
 
                 <div className="inputLabel">Site Identifier</div>
 

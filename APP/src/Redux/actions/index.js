@@ -309,17 +309,14 @@ export const SaveMaxCardsToDB = (number) => {
 
 /**********Site Identifier */
 export const HandleTextInputForSiteIdentifier = (text) => {
-    console.log("Action to hande HandleTextInputForSiteIdentifier", text)
+    //console.log("Action to hande HandleTextInputForSiteIdentifier", text)
     //do validation for text string
-    return dispatch => {
 
-
-        dispatch({
-            type: 'SID_TEXT',
-            payload: text
-
-        })
+    return {
+        type: 'SID_TEXT',
+        payload: text
     }
+    
 
 
 

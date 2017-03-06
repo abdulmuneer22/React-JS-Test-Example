@@ -6,7 +6,8 @@ import {
     HandleTextInputForTagLabel,
     SaveInstructorTitle,
     HandleTextInputForMaxCards,
-    GetMaxCardsFromDB
+    GetMaxCardsFromDB,
+    HandleTextInputForSiteIdentifier
 
 } from './index'
 
@@ -58,27 +59,15 @@ it('HandleTextInputForMaxCards should create TagLabel_TEXT action', () => {
     })
 })
 
+it('HandleTextInputForSiteIdentifier should create SID_TEXT action', () => {
+    expect(HandleTextInputForSiteIdentifier("Test")).toEqual({
+        type: 'SID_TEXT',
+        payload: "Test"
+    })
+})
 
 
 
-function fetchData() {
-    return dispatch => {
-        var CMS_END = "http://localhost:8080/cms/GetTitle/IRTC"
-        var PostData = querystring.stringify(
-            {
-                "target": "Title"
-            }
-        );
-        axios.post(CMS_END,PostData)
-        .then((response)=>{
-            console.log("from GetMaxCardsFromDB action ", response.data[0])
-                dispatch({
-                    type: 'MAX_CARDS_NUMBER',
-                    payload: response.data[0].value
-                })
-        })
-    }
-}
 
 
 

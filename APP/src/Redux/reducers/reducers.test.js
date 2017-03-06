@@ -11,6 +11,12 @@ import TagLabelReducer from './SiteSettings/TagLabelReducer'
 import MaxCardsReducer from './SiteSettings/MaxCardsReducer'
 
 
+/************************SiteIdentifier Reducers Test */
+import SiteIdentifierErrors from './SiteIdentifierErrors'
+import SiteIdentifierReducer from './SiteIdentifierReducer'
+
+
+
 // Testng initial values for all reducers
 
 it('should return the initial state', () => {
@@ -46,4 +52,15 @@ it('should return the initial state', () => {
     ).toEqual(0)
   })
 
+  it('should return the initial state for SiteIdentifierReducer', () => {
+    expect(
+      SiteIdentifierReducer(undefined, {})
+    ).toEqual("")
+  })
+
+  it('should return the initial state for SiteIdentifierErrors', () => {
+    expect(
+      SiteIdentifierErrors(undefined, {})
+    ).toEqual("")
+  })
 
