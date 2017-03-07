@@ -17,6 +17,9 @@ import SiteIdentifierErrors from './SiteIdentifierErrors'
 
 
 
+/********** Bulk Upload Refinements */
+import DropDownReducer from './BulkUpload/DropDownReducer'
+
 export default combineReducers({
 
    IRTText : IRTTitleText,
@@ -25,5 +28,6 @@ export default combineReducers({
    TagLabelText : TagLabelReducer,
    MaxCardsNumber : MaxCardsReducer,
    SiteIdentifier : SiteIdentifier,
-   SiteIdentifierErrors : SiteIdentifierErrors
+   SiteIdentifierErrors : SiteIdentifierErrors,
+   DropDown : DropDownReducer
 });
