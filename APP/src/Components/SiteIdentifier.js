@@ -6,6 +6,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {connect} from 'react-redux'
 import * as actions from '../Redux/actions'
 
+//reg-x validator library
+import validator from 'validator';
 
 
 const Styles = {
@@ -28,6 +30,25 @@ export class SiteIdentifier extends Component {
     }
 
 
+    stringValidation(){
+
+        if(!this.props.TextValue.size){
+            return "Cannot be empty"
+        }else{
+            if(this.props.TextValue.size !== 5){
+                return "Needs to be exactly 5 chars - eg XXXXX"
+            }else {
+                if(!validator.isAlphanumeric(this.props.TextValue.value)){
+                    return "Invalid Site Identifier , Site idnetifier should not have spaces or special charectors "
+                }
+            }
+        }
+
+
+        
+        
+    }
+
     render() {
 
         return (
@@ -41,10 +62,7 @@ export class SiteIdentifier extends Component {
                         id = "TextField"
                         hintText={this.props.placeholderText}
                         hintStyle={Styles.hintStyle}
-                        errorText={
-                            !this.props.TextValue.size ? "Cannot be empty" : 
-                            this.props.TextValue.size !== 5 ? "Needs to be exactly 5 chars - eg XXXXX" : ""
-                            }
+                        errorText={this.stringValidation()}
                         value = {this.props.TextValue.value}
                         onChange={(event, newValue) => {
                             this.props.HandleTextInputForSiteIdentifier(newValue)
