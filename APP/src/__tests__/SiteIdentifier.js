@@ -83,7 +83,22 @@ describe("SiteIdentifier Test", ()=>{
 
         expect(enzymeWrapper.find('TextField').props().errorText).toBe(expetedError)
         
+        props = {
+            GetSiteIdentifier : jest.fn(),
+            GetIRTCTitleFromDB : jest.fn(),
+            TextValue : {
+            value : "test@1",
+            size : 5
+            }
+        }
 
+
+        var enzymeWrapper = shallow(<SiteIdentifier {...props} />)
+
+        var expetedError = "Invalid Site Identifier , Site idnetifier should not have spaces or special charectors "
+        
+        expect(enzymeWrapper.find('TextField').props().errorText).toBe(expetedError)
+        
         
     })
 
