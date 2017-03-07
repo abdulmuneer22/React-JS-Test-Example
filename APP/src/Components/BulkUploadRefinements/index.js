@@ -17,6 +17,8 @@ export class BulkUploadRefinements extends Component{
                     :
                     null
                 }
+            
+
             </div>
         )
     }
