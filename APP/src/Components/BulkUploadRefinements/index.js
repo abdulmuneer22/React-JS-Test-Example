@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import Label from './Label'
 import List from './List'
 
+import ButtonBlock from './ButtonBlock'
+
 import {connect} from 'react-redux'
 
 export class BulkUploadRefinements extends Component{
@@ -11,12 +13,15 @@ export class BulkUploadRefinements extends Component{
         return(
             <div>
                 <Label/>
+                <div style = {{height : 400}}>
                 {
                     this.props.DropDownStatus ?
                     <List />
                     :
                     null
                 }
+                </div>
+                <ButtonBlock/>
             
 
             </div>

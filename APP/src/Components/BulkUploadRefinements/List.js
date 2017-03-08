@@ -11,7 +11,7 @@ class List extends Component{
             <div>
                 {
                     ListData.map((item,i)=>{
-                        console.log(item)
+                        //console.log(item)
                         return(
                             <ListChild childData = {item} kye={i}/>
                         );

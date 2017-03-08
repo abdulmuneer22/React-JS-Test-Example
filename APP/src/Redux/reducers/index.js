@@ -19,6 +19,9 @@ import SiteIdentifierErrors from './SiteIdentifierErrors'
 
 /********** Bulk Upload Refinements */
 import DropDownReducer from './BulkUpload/DropDownReducer'
+import ChapterSelection from './BulkUpload/ChapterSelection'
+import SubChapterSelection from './BulkUpload/SubChapterSelection'
+
 
 export default combineReducers({
 
@@ -29,5 +32,7 @@ export default combineReducers({
    MaxCardsNumber : MaxCardsReducer,
    SiteIdentifier : SiteIdentifier,
    SiteIdentifierErrors : SiteIdentifierErrors,
-   DropDown : DropDownReducer
+   DropDown : DropDownReducer,
+   ChapterSelection : ChapterSelection,
+   SubChapterSelection : SubChapterSelection
 });

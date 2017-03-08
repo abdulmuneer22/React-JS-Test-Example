@@ -412,9 +412,37 @@ export const SaveSiteIdentifierToDB = (id) => {
 
 
 export const FlipDropDown = (state) => {
-    console.log("Flipped Dropdown" , state)
+    //console.log("Flipped Dropdown" , state)
     return {
         type : 'FLIP_DROP_DOWN',
         payload : state
+    }
+}
+
+
+export const SelectChapter = (id,state) => {
+    console.log("Selected Chapter" , id)
+    return {
+        type : 'SELECTED_CHAPTER',
+        payload : {
+            Chapter : id,
+            Selected : state
+        }
+    }
+}
+
+
+export const SelectSubChapter = (Child,Parent,state) => {
+    console.log("Selected Sub Chapter" , Parent + "." +Child)
+    // console.log("Of Chapter" , Parent)
+    
+    return {
+        type : 'SELECTED_SUB_CHAPTER',
+        payload : {
+            Parent : Parent,
+            Child : Child,
+            Selected : state
+
+        }
     }
 }

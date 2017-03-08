@@ -7,7 +7,7 @@ import * as actions from '../../Redux/actions'
 export class Label extends Component{
 
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <div>
                 <div style={{
