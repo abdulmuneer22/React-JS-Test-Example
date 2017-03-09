@@ -9,16 +9,16 @@ import * as actions from '../../Redux/actions'
 class List extends Component{
 
     componentWillMount(){
-        this.props.GetAllChapters()
+        //this.props.GetAllChapters()
     }
 
     render(){
-        // console.log(ListData)
+        console.log(ListData)
         return(
             <div>
-                {   this.props.ChapterList ?
-                    this.props.ChapterList.map((item,i)=>{
-                        //console.log(item)
+                {   ListData ?
+                    ListData.map((item,i)=>{
+                        console.log(item)
                         return(
                             <ListChild childData = {item.SubChapters} parentNumber = {item.Chapter} key={i}/>
                         );
