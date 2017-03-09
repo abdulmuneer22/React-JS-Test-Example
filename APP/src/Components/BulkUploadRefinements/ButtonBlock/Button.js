@@ -6,6 +6,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 export class Button extends Component{
     render(){
         return(
+            <div
+            onClick = {this.props.onClick}
+            >
             <MuiThemeProvider>
             <FlatButton 
             disabled = {true}
@@ -19,6 +22,7 @@ export class Button extends Component{
             }}
             />
             </MuiThemeProvider>
+            </div>
         );
     }
 }

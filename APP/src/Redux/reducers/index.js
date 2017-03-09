@@ -22,6 +22,7 @@ import DropDownReducer from './BulkUpload/DropDownReducer'
 import ChapterSelection from './BulkUpload/ChapterSelection'
 import SubChapterSelection from './BulkUpload/SubChapterSelection'
 
+import ChapterList from './BulkUpload/Chapters'
 
 export default combineReducers({
 
@@ -34,5 +35,6 @@ export default combineReducers({
    SiteIdentifierErrors : SiteIdentifierErrors,
    DropDown : DropDownReducer,
    ChapterSelection : ChapterSelection,
-   SubChapterSelection : SubChapterSelection
+   SubChapterSelection : SubChapterSelection,
+   ChapterList : ChapterList
 });

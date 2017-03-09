@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import * as actions from '../../Redux/actions'
 import { connect } from 'react-redux'
 
+import axios from 'axios'
+
 class CheckBox extends Component {
 
     constructor() {
@@ -14,98 +16,28 @@ class CheckBox extends Component {
 
 
 
-    componentWillReceiveProps(next) {
-
-        const CurrentChapter = next.Chapter
-        const SelectedChaper = next.SelectedChapter.Chapter
-
-        if(!this.props.parent){
-
-            //handle individual click on child
-            const CurrentChapter = this.props.ParentChapter +"."+ this.props.ChildChapter
-            // console.log("CurrentChapter" , CurrentChapter)
-
-            const SelectedChapter = next.SubChapterSelected.Parent + "." + next.SubChapterSelected.Child
-            //console.log("SelectedChapter" , SelectedChapter)
-            if(CurrentChapter  === SelectedChapter){
-
-                if(next.SubChapterSelected.Selected){
-                    this.setState({
-                    SelectedMe : true
-                })
-                }else{
-                  this.setState({
-                    SelectedMe : false
-                })  
-                }
-                
-            }
-
-
+    handleClick() {
+        //console.log(this.props)
+        if(this.props.parent){
+        this.props.SelectChapter(this.props.Chapter,!this.state.SelectedMe)
         }else{
-        
-
-        if (CurrentChapter === SelectedChaper) {
-            if(next.SelectedChapter.Selected){
-                this.setState({
-                SelectedMe: true
-                })
-            }else{
-                this.setState({
-                SelectedMe: false
-                })
-            }
-            
-
+            //console.log(this.props.SubChapter)
+            this.props.SelectSubChapter(this.props.SubChapter,!this.state.SelectedMe)
         }
-
-        
-        }
-
-
-        if(this.props.ParentChapter === SelectedChaper){
-
-            if(next.SelectedChapter.Selected){
-                this.setState({
-                SelectedMe: true
-                })
-            }else{
-                this.setState({
-                SelectedMe: false
-                })
-            }
-        }
-
-
-        
-
-    }
-
-    handleClick(id,state) {
-        //check if parent
-        if (this.props.parent) {
-            this.props.SelectChapter(id,!this.props.SelectedChapter.Selected)
-        }else{
-            //console.log(this.props.ParentChapter)
-            const SubChapter = this.props.ChildChapter
-            const ParentChapter = this.props.ParentChapter
-
-            this.props.SelectSubChapter(SubChapter,ParentChapter,!this.props.SubChapterSelected.Selected)
-        }
+        this.setState({
+            SelectedMe : !this.state.SelectedMe
+        })
 
     }
 
 
     render() {
-        //console.log(this.props.SubChapterSelected)
-        return (
 
-            <i
-                onClick={() => {
-                    this.handleClick(this.props.Chapter)
-                }}
-                className={!this.state.SelectedMe ? "fa fa-square-o" : "fa fa-check-square-o"}
-                aria-hidden="true" />
+        return (
+            <i 
+            onClick = {()=>{this.handleClick()}}
+            className={!this.state.SelectedMe ? "fa fa-square-o" : "fa fa-check-square-o"}
+            aria-hidden="true" />
 
 
 

@@ -409,6 +409,29 @@ export const SaveSiteIdentifierToDB = (id) => {
     }
 }
 
+/*********Chapters */
+
+export const GetAllChapters = () => {
+    return dispatch => {
+        const END_POINT = "http://localhost:8080/allChapters"
+        axios.get(END_POINT)
+        .then((response)=>{
+            //console.log(response.data)
+            dispatch({
+                type : 'FETCHED_CHAPTERS',
+                payload : response.data
+            })
+        })
+        .catch((err)=>{
+            if(err){
+                dispatch ({
+                    type : 'FAILED_FETCH_CHAPTERS'
+                })
+            }
+        })
+    }
+}
+
 
 
 export const FlipDropDown = (state) => {
@@ -421,7 +444,8 @@ export const FlipDropDown = (state) => {
 
 
 export const SelectChapter = (id,state) => {
-    console.log("Selected Chapter" , id)
+    // console.log(id)
+    // console.log(state)
     return {
         type : 'SELECTED_CHAPTER',
         payload : {
@@ -432,15 +456,14 @@ export const SelectChapter = (id,state) => {
 }
 
 
-export const SelectSubChapter = (Child,Parent,state) => {
-    console.log("Selected Sub Chapter" , Parent + "." +Child)
-    // console.log("Of Chapter" , Parent)
-    
+export const SelectSubChapter = (id,state) => {
+    //console.log(id)
+    //console.log(state)
+
     return {
         type : 'SELECTED_SUB_CHAPTER',
         payload : {
-            Parent : Parent,
-            Child : Child,
+            Chapter : id,
             Selected : state
 
         }
