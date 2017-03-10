@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CheckBox from './CheckBox'
 
-class ListChild extends Component{
+export class ListChild extends Component{
     render(){
         return(
             <div>
@@ -16,6 +16,7 @@ class ListChild extends Component{
                             }}
                             key={i}
                             >
+                            
                             <CheckBox parent={false} SubChapter={this.props.parentNumber +"."+item}/>
                             <span style={{marginLeft : 10}}>Chapter {this.props.parentNumber +"."+item}</span>
                             

@@ -449,8 +449,8 @@ export const SelectChapter = (id,state) => {
     return {
         type : 'SELECTED_CHAPTER',
         payload : {
-            Chapter : id,
-            Selected : state
+            Chapter : id, //12
+            Selected : state // false/true
         }
     }
 }

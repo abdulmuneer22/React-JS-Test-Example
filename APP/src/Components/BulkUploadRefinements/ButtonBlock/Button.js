@@ -7,11 +7,11 @@ export class Button extends Component{
     render(){
         return(
             <div
+            className="upload_button"
             onClick = {this.props.onClick}
             >
             <MuiThemeProvider>
             <FlatButton 
-            disabled = {true}
             label= {this.props.title}
             style = {{
                 color : this.props.labelColor,

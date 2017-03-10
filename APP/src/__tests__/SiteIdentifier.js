@@ -106,7 +106,7 @@ describe("SiteIdentifier Test", ()=>{
     it('has text field with correct value', ()=>{
         const { enzymeWrapper } = setup()
         const value = enzymeWrapper.find('TextField').props()
-        console.log(value)
+        // console.log(value)
         expect(enzymeWrapper.find('TextField').props().value).toBe("Hello")
     })
 

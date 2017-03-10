@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import axios from 'axios'
 
-class CheckBox extends Component {
+export class CheckBox extends Component {
 
     constructor() {
         super();

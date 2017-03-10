@@ -4,7 +4,7 @@ import Button from './Button'
 
 import {connect} from 'react-redux'
 
-class ButtonBlock extends Component{
+export class ButtonBlock extends Component{
 
     constructor(){
         super();
@@ -36,6 +36,7 @@ class ButtonBlock extends Component{
 
     render(){
         return(
+            <div className="button_block">
             <div className="container" style={{
                 display : 'flex',
                 //backgroundColor : 'red',
@@ -54,6 +55,7 @@ class ButtonBlock extends Component{
                 labelColor ="#ffffff"
                 onClick = {this.uploadandcreate}
                 />
+            </div>
             </div>
         );
     }
